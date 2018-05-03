@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row col-sm-6 col-lg-4 col-sm-offset-3 col-lg-offset-4">
+
+        <label>Wybierz druzyne dla ktorej przeprowadzic transfery </label>
+        <select name="team" ng-model="model.teamName" class="form-control">
+            <option  ng-repeat="team in teams">{{team.teamName}}</option>
+        </select>
+
+
+        <p>{{model.username}}t{{model.leagueTypeName}}t{{teams}}</p>
+    </div>
+
+    <div class="row col-sm-6 col-lg-4 col-sm-offset-3 col-lg-offset-4">
+        <p></p>
+        <button type="submit"  class="btn btn-primary" ng-click="back()" >Powrot</button>
+        <button type="submit"  class="btn btn-primary" ng-click="next()" >Dalej</button>
+    </div>
+
+</div>

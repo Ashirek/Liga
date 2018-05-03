@@ -1,0 +1,15 @@
+<div class="container" >
+    <div class="row col-sm-6 col-lg-4 col-sm-offset-3 col-lg-offset-4" >
+    <label>Wybierz lige z kotrej wybrac druzyne </label>
+        <select name="league"  ng-model="model.leagueTypeName" class="form-control ">
+            <option  ng-repeat="league in leagueType">{{league.leagueTypeName}}</option>
+        </select>
+        <p>t{{model.leagueTypeName}}t</p>
+    </div>
+
+    <div class="row col-sm-6 col-lg-4 col-sm-offset-3 col-lg-offset-4">
+        <p></p>
+        <button type="submit"  class="btn btn-primary" ng-click="next()" >Dalej</button>
+    </div>
+
+</div>

@@ -1,0 +1,116 @@
+<p>{{model3}}</p>
+<p>model</p>
+<p>{{test}}</p>
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class=" panel panel-primary">
+            <div class="panel-heading">
+                <p>Wynik spotakania</p>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group center-block">
+                        {{model.homeTeamName}}
+                        <input ng-model="model.homeTeamGoals" type="number" min="0" max="15" name="homescore"/> : <input ng-model="model.awayTeamGoals" type="number" min="0" max="15" name="awayscore"/>
+                        {{model.awayTeamName}}
+                        <button class="btn  btn-primary" ng-click="addFix()">Zatwierdź</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <p>Statystyki piłkarzy {{model.homeTeamName}}.
+                </p>
+            </div>
+            <div ng-show="showH" class="panel-body">
+                <table class="table table-responsive">
+                    <thead>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                    <th>Gole</th>
+                    <th>Asysty</th>
+                    <th>Żółte kartki</th>
+                    <th>Czerwone kartki</th>
+                    <th>Czas gry</th>
+                    </thead>
+                    <tbody class="table-responsive">
+                    <tr>
+                        <td>{{model2.footballerFirstName}}</td>
+                        <td>{{model2.footballerLastName}}</td>
+                        <td><input ng-model="model2.goals" class="center-block" type="number" min="0" max="9" /></td>
+                        <td><input ng-model="model2.assists" class="center-block" type="number" min="0" max="9"/></td>
+                        <td><input ng-model="model2.yellowCards" class="center-block" type="number" min="0" max="2"/></td>
+                        <td><input ng-model="model2.redCards" class="center-block" type="number" min="0" max="1"/></td>
+                        <td><input ng-model="model2.gameTime" class="center-block" type="number" min="0" max="90"/></td>
+                        <td><button class="btn btn-primary" ng-click="addStatsH(footballer.footballerLastName)">Zatwierdź</button> </td>
+                    </tr>
+                    <tr ng-repeat="footballer in homeFootballers">
+                        <td>{{footballer.footballerFirstName}}</td>
+                        <td>{{footballer.footballerLastName}}</td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p>Nie dodane</p></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <p>Statystyki piłkarzy {{model.awayTeamName}}.
+                </p>
+            </div>
+            <div ng-show="showA" class="panel-body">
+                <table class="table table-responsive">
+                    <thead>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                    <th>Gole</th>
+                    <th>Asysty</th>
+                    <th>Żółte kartki</th>
+                    <th>Czerwone kartki</th>
+                    <th>Czas gry</th>
+                    </thead>
+                    <tbody class="table-responsive">
+                    <tr>
+                        <td>{{model3.footballerFirstName}}</td>
+                        <td>{{model3.footballerLastName}}</td>
+                        <td><input ng-model="model3.goals" class="center-block" type="number" min="0" max="9" /></td>
+                        <td><input ng-model="model3.assists" class="center-block" type="number" min="0" max="9"/></td>
+                        <td><input ng-model="model3.yellowCards" class="center-block" type="number" min="0" max="2"/></td>
+                        <td><input ng-model="model3.redCards" class="center-block" type="number" min="0" max="1"/></td>
+                        <td><input ng-model="model3.gameTime" class="center-block" type="number" min="0" max="90"/></td>
+                        <td><button class="btn btn-primary" ng-click="addStatsA(footballer.footballerLastName)">Zatwierdź</button> </td>
+                    </tr>
+                    <tr ng-repeat="footballer in awayFootballers">
+                        <td>{{footballer.footballerFirstName}}</td>
+                        <td>{{footballer.footballerLastName}}</td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p class="text-center">0</p></td>
+                        <td><p>Nie dodane</p></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

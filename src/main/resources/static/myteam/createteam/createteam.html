@@ -1,0 +1,18 @@
+<div class="container" style="">
+    <div class="row">
+
+        <form role="form" ng-submit="addTeam()" class="col-sm-6 col-lg-4 col-sm-offset-3 col-lg-offset-4">
+            <div class="form-group">
+                <label for="teamName">Nazwa druzyny:}</label>
+                <input type="text" placeholder="user/admin" class="form-control" id="teamName" name="teamName" ng-model="credentials.teamName"/>
+            </div>
+            <div class="form-group">
+                <label>Wybierz jakiego typu bedzie to druzyna</label>
+                <select name="liga" ng-model="credentials.leagueTypeName"  class="form-control">
+                    <option  ng-repeat="league in leagueType">{{league.leagueTypeName}}</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

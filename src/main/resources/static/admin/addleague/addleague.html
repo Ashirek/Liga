@@ -1,0 +1,28 @@
+<form role="form" ng-submit="addLeague()">
+<div class = "table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nazwa ligi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="aha in leagueType">
+
+            <td>{{aha.leagueTypeId}}</td>
+            <td>{{aha.leagueTypeName}}</td>
+
+        </tr>
+
+            <tr>
+                <td><button type="submit" class="btn btn-primary">Dodaj ligę</button></td>
+                <td><input type="text" class="form-control" id="leagueTypeName" name="leagueTypeName" ng-model="credentials.leagueTypeName"/> </td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+</div>
+</form>

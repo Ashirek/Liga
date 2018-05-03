@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+
+        <!--<form role="form" ng-submit=testf() class="form-inline" >-->
+        <div class="row col-sm-6 col-lg-4 col-sm-offset-3 col-lg-offset-4">
+                <label>Wybierz lige do której chcesz dodać drużynę</label>
+                <select name="liga" ng-model="credentials.leagueTypeName" class="form-control">
+                    <option   ng-repeat="aha in leagueType">{{aha.leagueTypeName}}</option>
+                </select>
+          </div>
+        <!--</form>-->
+
+    </div>
+
+
+
+
+<form role="form" ng-submit="addRTeam()">
+    <div class = "table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nazwa druzyny</th>
+                <th>Nazwa ligi</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="team in realTeams | filter:credentials.leagueTypeName">
+
+                <td>{{team.realTeamId}}</td>
+                <td>{{team.realTeamName}}</td>
+                <td>{{team.realTeamLeague.leagueTypeName}}</td>
+
+            </tr>
+
+            <tr>
+                <td><button type="submit" class="btn btn-primary">Dodaj drużyne</button></td>
+                <td><input type="text" class="form-control" id="realTeamName" name="realTeamName" ng-model="credentials.realTeamName"/> </td>
+                <td><input type="text" class="form-control" id="leagueTypeName" name="leagueTypeName" placeholder={{credentials.leagueTypeName}} readonly/></td>
+            </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+</form>
+</div>

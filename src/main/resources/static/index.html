@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>springboot-jwt-starter</title>
+  <!--  <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.css">-->
+    <link rel="stylesheet"  href="css/mojestyle.css">
+    <link rel="stylesheet"  href="css/bootstrap.css">
+    <link rel="stylesheet"  href="css/bootstrap.min.css">
+    <link rel="stylesheet"  href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet"  href="css/bootstrap-theme.css">
+    <style type="text/css">
+
+    [ng\:cloak], [ng-cloak], .ng-cloak {
+        display: none !important;
+    }
+    </style>
+    <script type="text/javascript">
+        var verifyCallback = function(response) {
+            alert(response);
+        };
+        var widgetId1;
+        var widgetId2;
+        var onloadCallback = function() {
+            // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+            // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+            widgetId1 = grecaptcha.render('example1', {
+                'sitekey' : '6Lf5r0UUAAAAAA6xRv8XZTAmzRVKDouk1aHN6JK0',
+                'theme' : 'light'
+            });
+            widgetId2 = grecaptcha.render(document.getElementById('example2'), {
+                'sitekey' : '6Lf5r0UUAAAAAA6xRv8XZTAmzRVKDouk1aHN6JK0'
+            });
+            grecaptcha.render('example3', {
+                'sitekey' : '6Lf5r0UUAAAAAA6xRv8XZTAmzRVKDouk1aHN6JK0',
+                'callback' : verifyCallback,
+                'theme' : 'dark'
+            });
+        };
+    </script>
+</head>
+<body ng-app="myApp"  style="background-color:rgb(230, 230, 230);">
+<nav class="navbar navbar-default navbar-fixed-top "  role="navigation">
+
+  <div class="container-fluid" ng-controller="NavigationCtrl" ng-cloak class="ng-cloak">
+
+    <ul  class="nav nav-pills nav-justified" role="tablist">
+        <li ng-show="adminLogged"   ng-class="tabClass('/')"><a href="#/" ng-click="setSelectedTab('/')">FLF</a></li>
+        <li ng-class="tabClass('/login')" ng-hide="authenticated"><a href="#/login" ng-click="setSelectedTab('/login')">Logowanie</a></li>
+        <li ng-class="tabClass('/register')" ng-hide="authenticated" ><a href="#/register" ng-click="setSelectedTab('/register')">Rejestracja</a></li>
+        <li ng-hide="adminLogged"  ng-class="tabClass('/classification')" ><a href="#/classification" ng-click="setSelectedTab('/classification')">Klasyfikacja</a></li>
+        <li  ng-hide="adminLogged" ng-class="tabClass('/rules')" ><a href="#/rules" ng-click="setSelectedTab('/rules')">Zasady</a></li>
+        <li  ng-hide="adminLogged" ng-class="tabClass('/stats')" ><a href="#/stats" ng-click="setSelectedTab('/stats')">Statystyki</a></li>
+        <li  ng-show="adminLogged" ng-class="tabClass('/admin/addleague')" ><a href="#/admin/addleague" ng-click="setSelectedTab('/admin/addleague')">Dodwanie ligi</a></li>
+        <li  ng-show="adminLogged" ng-class="tabClass('/admin/addteam')" ><a href="#/admin/addteam" ng-click="setSelectedTab('/admin/addteam')">Dodwanie druzyny</a></li>
+        <li  ng-show="adminLogged" ng-class="tabClass('/admin/addfootballers')" ><a href="#/admin/addfootballers" ng-click="setSelectedTab('/admin/addfootballers')">Dodwanie piłkarzy</a></li>
+        <li  ng-show="adminLogged" ng-class="tabClass('/admin/addgameweek')" ><a href="#/admin/addgameweek" ng-click="setSelectedTab('/admin/addgameweek')">Dodawanie spotkania</a></li>
+        <li  ng-show="adminLogged" ng-class="tabClass('/admin/addstats')" ><a href="#/admin/addstats" ng-click="setSelectedTab('/admin/addstats')">Dodwanie statystyk</a></li>
+
+        <!--<li ng-show="adminLogged"  ng-class="tabClass('/admin')" ><a href="#/admin" ng-click="setSelectedTab('/admin')">Admin</a></li>-->
+      <!--  <li ng-show="adminLogged" class="dropdown" ng-class="tabClass('/admin')" ng-click="setSelectedTab('/admin')">
+            <a href="#/admin" class="dropdown-toggle"  data-toggle="dropdown">Admin<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-class="tabClass('/admin/addleague')" ><a href="#/admin/addleague" ng-click="setSelectedTab('/admin/addleague')">Dodwanie ligi</a></li>
+                <li ng-class="tabClass('/admin/addteam')" ><a href="#/admin/addteam" ng-click="setSelectedTab('/admin/addteam')">Dodwanie druzyny</a></li>
+                <li ng-class="tabClass('/admin/addfootballers')" ><a href="#/admin/addfootballers" ng-click="setSelectedTab('/admin/addfootballers')">Dodwanie piłkarzy</a></li>
+                <li ng-class="tabClass('/admin/addgameweek')" ><a href="#/admin/addgameweek" ng-click="setSelectedTab('/admin/addgameweek')">Dodawanie spotkania</a></li>
+                <li ng-class="tabClass('/admin/addstats')" ><a href="#/admin/addstats" ng-click="setSelectedTab('/admin/addstats')">Dodwanie statystyk</a></li>
+                <li ng-class="tabClass('/admin/matchresult')" ><a href="#/admin/addstats" ng-click="setSelectedTab('/admin/matchresult')">Transfery</a></li>
+                <li ng-class="tabClass('/admin/matchresult2')" ><a href="#/admin/matchresult2" ng-click="setSelectedTab('/admin/matchresult2')">Transfery</a></li>
+            </ul>
+        </li>-->
+        <li ng-show="userLogged" class="dropdown" ng-class="tabClass('/myteam')" ng-click="setSelectedTab('/myteam')">
+            <a class="dropdown-toggle"  data-toggle="dropdown">Moja druzyna<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-class="tabClass('/myteam/createteam')" ><a href="#/myteam/createteam" ng-click="setSelectedTab('/myteam/createteam')">Stwórz drużynę</a></li>
+                <li ng-class="tabClass('/myteam/team')" ><a href="#/myteam/team" ng-click="setSelectedTab('/myteam/team')">Ustawienia skaldu</a></li>
+                <li ng-class="tabClass('/myteam/transfers')" ><a href="#/myteam/transfers" ng-click="setSelectedTab('/myteam/transfers')">Transfery</a></li>
+                <li ng-class="tabClass('/myteam/transfers2')" ><a href="#/myteam/transfers2" ng-click="setSelectedTab('/myteam/transfers2')">Transfery2</a></li>
+
+            </ul>
+        </li>
+        <li ng-show="authenticated"><a href="" ng-click="logout()">Wyloguj się</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid pad-top  ng-cloak"  >
+<div ng-view ></div>
+</div>
+<footer style="padding: 10px;  text-align: center">
+    Autro: <adress>Patryk Sieczka</adress>
+    <p>Projekt inżynierski</p>
+</footer>
+  <script src="webjars/jquery/2.1.1/jquery.js"></script>
+  <script src="webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+  <script src="webjars/angularjs/1.5.8/angular.js"></script>
+  <script src="webjars/angular-route/1.5.9/angular-route.js"></script>
+
+  <script src="app.js"></script>
+  <script src="dashboard/dashboard.js"></script>
+  <script src="login/login.js"></script>
+  <script src="services/auth.js"></script>
+<script src="services/getfunctions.js"></script>
+<script src="services/setfunctions.js"></script>
+  <script src="register/register.js"></script>
+  <script src="admin/admin.js"></script>
+  <script src="admin/addleague/addleague.js"></script>
+  <script src="admin/addteam/addteam.js"></script>
+<script src="admin/addgameweek/addgameweek.js"></script>
+<script src="admin/addfootballers/addfootballers.js"></script>
+<script src="myteam/myteam.js"></script>
+<script src="myteam/team/team.js"></script>
+<script src="myteam/transfers/transfers.js"></script>
+<script src="myteam/createteam/createteam.js"></script>
+<script src="classification/classification.js"></script>
+<script src="stats/stats.js"></script>
+<script src="rules/rules.js"></script>
+<script src="admin/addstats/addstats.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+
+</body>
+</html>

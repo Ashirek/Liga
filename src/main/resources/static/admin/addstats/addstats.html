@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Dane niezbędne do dodania statystyk meczu
+            </div>
+            <div class="panel-body">
+                <label>Wybierz lige </label>
+                <select name="league"  class="form-control"  ng-model="model2.leagueTypeName" ng-change="getGW()" >
+                    <option  ng-repeat="league in allLeagueType">{{league.leagueTypeName}}</option>
+                </select>
+                <label>Wybierz kolejke z której pobrać spotkania </label>
+                <select name="gameweek" type="number"   string-to-number ng-model="model2.gameWeekNumber" class="form-control ">
+                    <option  ng-repeat="gameweek in allGameWeek">{{gameweek.gameWeekNumber}}</option>
+                </select>
+                <button class="btn btn-primary" ng-click="getData()">Pobierz dane</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <p>Mecze kolejki numer {{model2.gameWeekNumber}} w lidze {{model2.leagueTypeName}}</p>
+            </div>
+
+
+            <div class="panel-body">
+                <table class="table table-responsive">
+                    <thead>
+                    <th>Drużyna gospodarzy</th>
+                    <th> </th>
+                    <th>Drużyna gości</th>
+                    </thead>
+                    <tbody class="table-responsive">
+                    <tr ng-repeat="fixture in fixtures">
+                        <td>{{fixture.homeTeamName}}</td>
+                        <td><button class="btn btn-primary" ng-click="next(fixture.homeTeamName,fixture.awayTeamName)">Dodaj statystyki</button> </td>
+                        <td>{{fixture.awayTeamName}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel panel-primary col-lg-4 col-lg-offset-4">
+        <div class="panel-heading">
+            <p>Dodwanie punktow druzyn</p>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-primary" ng-click="addP()">Dodaj punkty</button>
+        </div>
+    </div>
+</div>
+
+

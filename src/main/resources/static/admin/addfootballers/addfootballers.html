@@ -1,0 +1,64 @@
+
+    <div class="row">
+        <div class="row col-sm-6 col-md-6 col-lg-4 col-sm-offset-3 col-md-offset-3 col-lg-offset-4">
+            <label>Wybierz lige, w której znajduje się drużyna</label>
+            <select name="liga" ng-model="selectedLiga" class="form-control">
+                <option ng-repeat="league in leagueType">{{league.leagueTypeName}}</option>
+            </select>
+
+            <label>Wybierz drużynę, do której dodać lub z której usunąc piłkarza</label>
+            <select name="liga" ng-model="credentials.realTeamName" class="form-control">
+                <option ng-repeat="team in realTeams | filter:selectedLiga">{{team.realTeamName}}</option>
+            </select>
+            <div class="row alert alert-danger" ng-show="blad">
+                <p>{{credentials.footballersFirstName}} {{credentials.footballersLastName}} znajduję się już w bazie danych.
+                    Utwórz nowego zawodnika</p>
+            </div>
+        </div>
+    </div>
+
+    <form role="form" ng-submit="addFootballer()">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th> </th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Pozycja</th>
+                    <th>Klub</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="footballer in footballers | filter:credentials.realTeamName">
+
+                    <td><button type="button" ng-click="delFut" class="btn btn-danger">Usuń piłkarza</button></td>
+                    <td>{{footballer.footballerFirstName}}</td>
+                    <td>{{footballer.footballerLastName}}</td>
+                    <td>{{footballer.position}}</td>
+                    <td>{{footballer.realTeams.realTeamName}}</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-success">Dodaj piłkarza</button>
+                    </td>
+                    <td><input type="text" class="form-control" id="footballersFirstName"
+                               name="footballersFirstName"
+                               ng-model="credentials.footballersFirstName"/></td>
+                    <td><input type="text" class="form-control" id="footballersLastName" name="footballersLastName"
+                               ng-model="credentials.footballersLastName"/></td>
+                    <td>
+                        <select name="gracze" ng-model="credentials.position" class="form-control">
+                            <option>Bramkarz</option>
+                            <option>Obronca</option>
+                            <option>Pomocnik</option>
+                            <option>Napastnik</option>
+                        </select></td>
+                    <td><input type="text" class="form-control" id="realTeamId" name="realTeamId"
+                               placeholder={{credentials.realTeamName}} readonly/></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>

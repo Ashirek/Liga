@@ -1,0 +1,86 @@
+
+    <div class="row">
+
+
+        <div class="col-lg-4 col-lg-offset-1" ng-controller="addGameWeekCtrl">
+            <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Dane niezbędne do utworzenia spotkania.
+                    </div>
+                    <div class="panel-body">
+                        <label>Wybierz ligie </label>
+                        <select name="league"  class="form-control"  ng-model="model.leagueTypeName" ng-change="getGW()" >
+                            <option  ng-repeat="league in allLeagueType">{{league.leagueTypeName}}</option>
+                        </select>
+                        <label>Wybierz kolejke do ktorej dodac mecze </label>
+                        <select name="gameweek" type="number"   string-to-number ng-model="model.gameWeekNumber" class="form-control ">
+                            <option  ng-repeat="gameweek in allGameWeek">{{gameweek.gameWeekNumber}}</option>
+                        </select>
+
+                        <button class="btn btn-primary" ng-click="getData()">Pobierz dane</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Dodaj spotkanie do kolejki nr {{model.gameWeekNumber}} ,w lidze {{model.leagueTypeName}}.
+                        </div>
+                        <div class="panel-body">
+                            <label>Gospodarz meczu</label>
+                            <select name="hometeam"  ng-model="model.homeTeamName" class="form-control ">
+                                <option  ng-repeat="hometeam in realTeam">{{hometeam.realTeamName}}</option>
+                            </select>
+                            <label>Gosc meczu </label>
+                            <select name="awayteam"  ng-model="model.awayTeamName" class="form-control ">
+                                <option  ng-repeat="awayteam in realTeam">{{awayteam.realTeamName}}</option>
+                            </select>
+                            <div class="form-group">
+                                <label for="matchtime">Data spotkania</label>
+                                <input type="datetime-local" class="form-control" id="matchtime" name="matchtime" ng-model="model.matchTime"/>
+                            </div>
+                            <button type="button"  class="btn btn-primary" ng-click="addF()" >Dodaj</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-lg-4 col-lg-offset-1" ng-controller="addGameWeekCtrl2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Tworzenie nowej kolejki meczowej
+                </div>
+                <div class="panel-body">
+                        <div class="form-group">
+                            <label for="gameweekstart">Numer kolejki</label>
+                            <input type="number" min="1"  class="form-control" id="gameweekstart" name="gameweekstart" ng-model="model.gameWeekNumber"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Wybierz ligie </label>
+                            <select name="league"  ng-model="model.leagueTypeName" class="form-control ">
+                                <option  ng-repeat="league in allLeagueType">{{league.leagueTypeName}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="leagueType">Data rozpoczęcia</label>
+                            <input type="date"  class="form-control" id="leagueType" name="leagueType" ng-model="model.gameWeekStart"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="gamweekend">Data zakończenia</label>
+                            <input type="date"  class="form-control" id="gamweekend" name="gamweekend" ng-model="model.gameWeekEnd"/>
+                        </div>
+                        <button type="button" class="btn btn-primary" ng-click="addGW()">Dodaj nową kolejkę</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>

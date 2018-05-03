@@ -1,0 +1,48 @@
+.modal-header-primary {
+    color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #428bca;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.modal-footer-primary{
+    color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #428bca;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.test{
+
+    background-image: url("field.png");
+    background-size: 100%;
+    width:  400px;
+    height: 351px;
+
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .pad-top{ padding-top: 225px; background-color:rgb(255, 255, 255);}
+}
+
+@media (min-width: 768px) and (max-width: 1999px) {
+    .pad-top{ padding-top: 50px; background-color:rgb(255, 255, 255);}
+    .height-log{ height: 738px}
+}
+
+@media (min-width: 1200px) {
+    .pad-top{ padding-top: 50px; background-color:rgb(255, 255, 255);}
+    .height-log{ height: 760px}
+}
+
+

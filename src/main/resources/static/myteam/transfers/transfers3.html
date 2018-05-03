@@ -1,0 +1,212 @@
+
+    <div class="row">
+        <div class="panel panel-default" style="background-color: #609dd2">
+            <div class="panel-body">
+                <p  class="text-center" > <b>Przeprowadzasz transfery dla klubu TestTeam.
+               Całkowity budżet: 100 mln.
+                    Dostępny budżet {{model.bank}} mln </b>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 ">
+            <div class="panel panel-primary well" >
+                <div class="panel-heading">Aktualny skład klub</div>
+            <div class="panel-body "   >
+                <div class="pre-scrollable">
+                <table class="table table-responsive">
+                <thead>
+                <th>Bramkarze</th>
+                <th>Klub</th>
+                <th>Wartosc</th>
+                <th>Punkty</th>
+                <th> </th>
+                </thead>
+                    <tbody  class="table-responsive">
+                <tr ng-repeat="footballer in footbalersinroster | filter:positions.goalkeeper">
+                    <td>{{footballer.footballerLastName}}</td>
+                    <td>{{footballer.realTeams.realTeamName}}</td>
+                    <td>{{footballer.price}}</td>
+                    <td>{{footballer.points}}</td>
+                    <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal2"
+                       ng-click="delFootballer(footballer.footballerLastName)">Usun</button></td>
+                </tr>
+                </tbody>
+                <thead>
+                <th>Obroncy</th>
+                <th>Klub</th>
+                <th>Wartosc</th>
+                <th>Punkty</th>
+                <th> </th>
+                </thead>
+                    <tbody  class="table-responsive">
+                <tr ng-repeat="footballer in footbalersinroster | filter:positions.defender">
+                    <td>{{footballer.footballerLastName}}</td>
+                    <td>{{footballer.realTeams.realTeamName}}</td>
+                    <td>{{footballer.price}}</td>
+                    <td>{{footballer.points}}</td>
+                    <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal2"
+                                 ng-click="delFootballer(footballer.footballerLastName)">Usun</button></td>
+                </tr>
+                </tbody>
+                <thead>
+                <th>Pomocnicy</th>
+                <th>Klub</th>
+                <th>Wartosc</th>
+                <th>Punkty</th>
+                <th> </th>
+                </thead>
+                    <tbody  class="table-responsive">
+                <tr ng-repeat="footballer in footbalersinroster | filter:positions.midfielder">
+                    <td>{{footballer.footballerLastName}}</td>
+                    <td>{{footballer.realTeams.realTeamName}}</td>
+                    <td>{{footballer.price}}</td>
+                    <td>{{footballer.points}}</td>
+                    <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal2"
+                                 ng-click="delFootballer(footballer.footballerLastName)">Usun</button></td>
+                </tr>
+                </tbody>
+
+                <thead>
+                <th>Napastnicy</th>
+                <th>Klub</th>
+                <th>Wartosc</th>
+                <th>Punkty</th>
+                <th> </th>
+                </thead>
+                    <tbody  class="table-responsive">
+                <tr ng-repeat="footballer in footbalersinroster | filter:positions.forward">
+                    <td>{{footballer.footballerLastName}}</td>
+                    <td>{{footballer.realTeams.realTeamName}}</td>
+                    <td>{{footballer.price}}</td>
+                    <td>{{footballer.points}}</td>
+                    <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal2"
+                                 ng-click="delFootballer(footballer.footballerLastName)">Usun</button></td>
+                </tr>
+                </tbody>
+
+            </table></div>
+            </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 ">
+
+            <div class="panel panel-primary well">
+                <div class="panel-heading">Piłkarze</div>
+            <div class="panel-body " > <div class="pre-scrollable">
+                <table class="table table-responsive">
+                    <thead>
+                    <th>Bramkarze</th>
+                    <th>Cena</th>
+                    <th>Punkty</th>
+                    <th></th>
+                    </thead>
+                    <tbody class="table-responsive">
+                    <tr ng-repeat="footballer in footballers | filter:positions.goalkeeper">
+                        <td>{{footballer.footballerLastName}}</td>
+                        <td>{{footballer.price}}</td>
+                        <td>{{footballer.points}}</td>
+                        <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+                                    ng-click="addToRoster(footballer.footballerLastName)">Dodaj</button></td>
+
+                    </tr>
+                    </tbody>
+                    <thead>
+                    <th>Obroncy</th>
+                    <th>Cena</th>
+                    <th>Punkty</th>
+                    </thead>
+                    <tbody  class="table-responsive" >
+                    <tr  ng-repeat="footballer in footballers | filter:positions.defender">
+                        <td>{{footballer.footballerLastName}}</td>
+                        <td>{{footballer.price}}</td>
+                        <td>{{footballer.points}}</td>
+                        <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+                                     ng-click="addToRoster(footballer.footballerLastName)">Dodaj</button></td>
+                    </tr>
+                    </tbody>
+                    <thead>
+                    <th>Pomocnincy</th>
+                    <th>Cena</th>
+                    <th>Punkty</th>
+                    </thead>
+                    <tbody  class="table-responsive">
+                    <tr ng-repeat="footballer in footballers | filter:positions.midfielder">
+                        <td>{{footballer.footballerLastName}}</td>
+                        <td>{{footballer.price}}</td>
+                        <td>{{footballer.points}}</td>
+                        <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+                                     ng-click="addToRoster(footballer.footballerLastName)">Dodaj</button></td>
+
+                    </tr>
+                    </tbody>
+                    <thead>
+                    <th>Napastnicy</th>
+                    <th>Cena</th>
+                    <th>Punkty</th>
+                    </thead>
+                    <tbody  class="table-responsive">
+                    <tr ng-repeat="footballer in footballers | filter:positions.forward">
+                        <td>{{footballer.footballerLastName}}</td>
+                        <td>{{footballer.price}}</td>
+                        <td>{{footballer.points}}</td>
+                        <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+                                     ng-click="addToRoster(footballer.footballerLastName)">Dodaj</button></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div></div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header modal-header-primary">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+            <h4 class="modal-title" id="myModalLabel">Transfer do klubu</h4>
+        </div>
+        <div class="modal-body">
+            <div ng-show="transfer1 === transfer2">
+            <p>Czy na pewno chcesz zakupić {{model.footballerLastNameAdd}} ?</p>
+            </div>
+            <div ng-show="transfer1" class="alert alert-success">
+            <p>Transfer powiódł się, {{model.footballerLastNameAdd}} dołaczył do twojej drużyny</p>
+                <p>Twój budżet wynosi teraz {{model.bank}}</p>
+            </div>
+            <div ng-show="transfer2" class="alert alert-danger ">
+                <p>Transfer niemożliwy,{{model.footballerLastNameAdd}} znajduję się w twojej drużynie</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+            <button type="button" class="btn btn-primary" ng-click="confirmAddToRoster()">Zapisz zmiany</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header modal-header-primary">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                <h4 class="modal-title" id="myModalLabel2">Transfer z klubu</h4>
+            </div>
+            <div class="modal-body">
+                <p>Czy na pewno chcesz się pozbyć {{model.footballerLastNameDel}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                <button type="button" class="btn btn-primary" ng-click="confirmDelFromRoster()" data-dismiss="modal">Zapisz zmiany</button>
+            </div>
+        </div>
+    </div>
+</div>
