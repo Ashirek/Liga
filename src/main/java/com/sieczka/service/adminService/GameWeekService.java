@@ -8,7 +8,6 @@ import java.util.List;
  * Created by Patryk on 2018-01-13.
  */
 public interface GameWeekService {
-    GameWeek findByLeagueType_LeagueTypeNameAndGameWeekNumber(String leagueTypeName, Integer gameWeekNumber);
-    List<GameWeek> findGameWeekByLeagueType_LeagueTypeName(String leagueTypeName);
+    GameWeek findByGameWeekNumber(Integer gameWeekNumber);
     List<GameWeek> findAll();
 }

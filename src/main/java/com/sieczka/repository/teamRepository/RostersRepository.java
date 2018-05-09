@@ -8,7 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface RostersRepository extends JpaRepository<Rosters,Long> {
     Rosters findByTeams_TeamName(String teamName);
-    /*Rosters findByTeams_TeamNameAndAndGameWeek_GameWeekNumber(String teamName, Integer gameWeekNumber);*/
 
-    Rosters findByRosterId(Long id);
 }

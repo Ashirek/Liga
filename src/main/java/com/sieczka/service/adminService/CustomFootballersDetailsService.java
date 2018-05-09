@@ -17,12 +17,18 @@ public class CustomFootballersDetailsService {
     private FootballersRepository footballersRepository;
 
     @Autowired
+    private FootballersService footballersService;
+
+    @Autowired
     private RealTeamRepository realTeamRepository;
+
+    @Autowired
+    private  RealTeamService realTeamService;
 
     public String addFootballer(String footballerFirstName, String footballerLastName, String position, String realTeamName){
         String answer;
-        Footballers footballers = footballersRepository.findByFootballerFirstName(footballerFirstName);
-        RealTeams realTeams = realTeamRepository.findByRealTeamName(realTeamName);
+        Footballers footballers = footballersService.findByFootballerFirstName(footballerFirstName);
+        RealTeams realTeams = realTeamService.findByRealTeamName(realTeamName);
 
         if (footballers != null)
         {

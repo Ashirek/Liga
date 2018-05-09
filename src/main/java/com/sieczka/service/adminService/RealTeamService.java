@@ -11,7 +11,5 @@ public interface RealTeamService {
 
     RealTeams findByRealTeamName(String realTeamName);
 
-    RealTeams findByRealTeamId(Long realTeamId);
-
     List<RealTeams> findAll();
 }

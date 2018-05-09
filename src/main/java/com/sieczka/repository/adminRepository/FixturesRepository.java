@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface FixturesRepository extends JpaRepository<Fixtures,Long> {
     Fixtures findByHomeTeamNameAndAwayTeamName(String homeTeamName, String awayTeamName);
-    List<Fixtures> findByGameWeek_LeagueType_LeagueTypeNameAndGameWeek_GameWeekNumber(String leagueTypeName, Integer gameWeekNumber);
+    List<Fixtures> findByGameWeek_GameWeekNumber(Integer gameWeekNumber);
 }

@@ -24,12 +24,6 @@ public class RealTeamServiceImpl implements RealTeamService {
 
 
     @Override
-    public RealTeams findByRealTeamId (Long realTeamId)   {
-        RealTeams realTeams = realTeamRepository.findByRealTeamId(realTeamId);
-        return realTeams;
-    }
-
-    @Override
     public List<RealTeams> findAll() {
         List<RealTeams> result = realTeamRepository.findAll();
         return result;

@@ -16,12 +16,15 @@ public class CustomRealTeamDetailsService {
     @Autowired
     private RealTeamRepository realTeamRepository;
 
+    @Autowired
+    private RealTeamService realTeamService;
+
 
 
     public void addTeam(String realTeamName){
 
 
-        RealTeams realTeams = realTeamRepository.findByRealTeamName(realTeamName);
+        RealTeams realTeams = realTeamService.findByRealTeamName(realTeamName);
 
         if (realTeams != null)
         {

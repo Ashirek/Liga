@@ -21,11 +21,15 @@ public class CustomFixturesDetailsService {
     @Autowired
     GameWeekRepository gameWeekRepository;
 
+    @Autowired
+    FixturesService fixturesService;
+
+    @Autowired
+    GameWeekService gameWeekService;
+
     public void addFixture(String homeTeamName, String awayTeamName, Date gameTime, Integer gameWeekNumber, String leagueTypeName){
 
-        //Fixtures fixtures = fixturesRepository.findByGameWeek_LeagueType_LeagueTypeNameAndGameWeek_GameWeekNumber(leagueTypeName, gameWeekNumber);
-
-        GameWeek gameWeek = gameWeekRepository.findByLeagueType_LeagueTypeNameAndGameWeekNumber(leagueTypeName, gameWeekNumber);
+        GameWeek gameWeek = gameWeekService.findByGameWeekNumber(gameWeekNumber);
 
 
             Fixtures fixtures = new Fixtures();
@@ -39,7 +43,7 @@ public class CustomFixturesDetailsService {
     }
 
     public void putFixture(String homeTeamName, String awayTeamName, Integer homeTeamGoals, Integer awayTeamGoals){
-        Fixtures fixtures = fixturesRepository.findByHomeTeamNameAndAwayTeamName(homeTeamName, awayTeamName);
+        Fixtures fixtures = fixturesService.findByHomeTeamNameAndAwayTeamName(homeTeamName, awayTeamName);
 
         fixtures.setHomeTeamGoals(homeTeamGoals);
         fixtures.setAwayTeamGoals(awayTeamGoals);

@@ -20,11 +20,6 @@ public class CustomGameWeekDetailsService {
         gameWeek.setGameWeekNumber(gameWeekNumber);
         gameWeek.setGameWeekStart(gameWeekStart);
         gameWeek.setGameWeekEnd(gameWeekEnd);
-      /*  LeagueType leagueType = leagueTypeRepository.findByLeagueTypeName("Premier League");
-        gameWeek.setGameWeekNumber(1);
-        gameWeek.setLeagueType(leagueType);
-        gameWeek.setGameWeekStart(gameWeekStart);
-        gameWeek.setGameWeekEnd(gameWeekEnd);*/
         gameWeekRepository.save(gameWeek);
 
 

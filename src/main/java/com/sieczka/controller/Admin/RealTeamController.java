@@ -28,7 +28,7 @@ public class RealTeamController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> addTeam(@RequestBody RealTeamCreator realTeamCreator){
-        realTeamTypeDetailsService.addTeam(realTeamCreator.realTeamName, realTeamCreator.leagueTypeName);
+        realTeamTypeDetailsService.addTeam(realTeamCreator.realTeamName);
         Map<String, String> result = new HashMap<>();
         result.put("result", "success");
         return ResponseEntity.accepted().body(result);

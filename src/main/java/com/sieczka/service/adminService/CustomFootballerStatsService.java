@@ -17,16 +17,17 @@ import java.util.Objects;
 @Service
 public class CustomFootballerStatsService {
 
-    @Autowired
-    FootballersRepository footballersRepository;
 
     @Autowired
-    FootballerStatsRepository footballerStatsRepository;
+    private    FootballerStatsRepository footballerStatsRepository;
 
     @Autowired
-    GameWeekRepository gameWeekRepository;
+    private    FootballersService footballersService;
 
-    public void addFootballerStats(String footballerLastName, String realTeamName, String leagueTypeName, Integer gameWeekNumber, Integer goals, Integer assists, Integer yCards, Integer rCards, Integer gameTime, String matchResult){
+    @Autowired
+    private    GameWeekService gameWeekService;
+
+    public void addFootballerStats(String footballerLastName, String realTeamName, Integer gameWeekNumber, Integer goals, Integer assists, Integer yCards, Integer rCards, Integer gameTime, String matchResult){
         Integer points;
         points=goals * 3 + assists * 2 + yCards * (-2) + rCards * (-3);
         if (gameTime == 90){
@@ -40,9 +41,9 @@ public class CustomFootballerStatsService {
             points = points + 1;
         }
         FootballerStats footballerStats = new FootballerStats();
-        Footballers footballers = footballersRepository.findByFootballerLastNameAndRealTeams_RealTeamName(footballerLastName, realTeamName);
+        Footballers footballers = footballersService.findByFootballerLastNameAndRealTeams_RealTeamName(footballerLastName, realTeamName);
         footballerStats.setFootballers(footballers);
-        GameWeek gameWeek = gameWeekRepository.findByLeagueType_LeagueTypeNameAndGameWeekNumber(leagueTypeName, gameWeekNumber);
+        GameWeek gameWeek = gameWeekService.findByGameWeekNumber(gameWeekNumber);
         footballerStats.setGameWeek(gameWeek);
         footballerStats.setGoals(goals);
         footballerStats.setAssists(assists);

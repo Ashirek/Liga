@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface FootballersService {
 
-    Footballers findByFootballersFirstName(String footballersFirstName);
+    Footballers findByFootballerFirstName(String footballersFirstName);
     Footballers findByFootballerLastName(String footballerLastName);
     Footballers findByFootballerLastNameAndRealTeams_RealTeamName(String lastName, String realTeamName);
     Footballers findByFootballerLastNameAndRosters(String footballerLastName, Rosters rosters);

@@ -12,7 +12,8 @@ import java.util.List;
  * Created by Patryk on 2018-01-02.
  */
 public interface FootballersRepository extends JpaRepository<Footballers, Long> {
-    Footballers findByFootballerFirstName(String footballerFirstName);
+
+    Footballers findByFootballerFirstName(String footballersFirstName);
     Footballers findByFootballerLastName(String footballerLastName);
 
     Footballers findByFootballerLastNameAndRealTeams_RealTeamName(String lastName, String realTeamName);

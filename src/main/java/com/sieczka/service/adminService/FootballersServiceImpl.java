@@ -19,7 +19,7 @@ public class FootballersServiceImpl implements FootballersService {
     private FootballersRepository footballersRepository;
 
     @Override
-    public Footballers findByFootballersFirstName(String footballersFirstName) {
+    public Footballers findByFootballerFirstName(String footballersFirstName) {
         Footballers footballers = footballersRepository.findByFootballerFirstName(footballersFirstName);
         return footballers;
     }

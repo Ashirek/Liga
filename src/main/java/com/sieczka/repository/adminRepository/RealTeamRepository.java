@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface RealTeamRepository extends JpaRepository<RealTeams, Long> {
     RealTeams findByRealTeamName(String realTeamName);
-    RealTeams findByRealTeamId(Long RealTeamId);
+
 
 
 }

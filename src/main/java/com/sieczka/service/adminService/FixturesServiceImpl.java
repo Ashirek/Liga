@@ -16,8 +16,8 @@ public class FixturesServiceImpl implements FixturesService{
     FixturesRepository fixturesRepository;
 
     @Override
-    public List<Fixtures> findByGameWeek_LeagueType_LeagueTypeNameAndGameWeek_GameWeekNumber(String leagueTypeName, Integer gameWeekNumber) {
-        List<Fixtures> fixtures = fixturesRepository.findByGameWeek_LeagueType_LeagueTypeNameAndGameWeek_GameWeekNumber(leagueTypeName, gameWeekNumber);
+    public List<Fixtures> findByGameWeek_GameWeekNumber(Integer gameWeekNumber) {
+        List<Fixtures> fixtures = fixturesRepository.findByGameWeek_GameWeekNumber(gameWeekNumber);
         return fixtures;
     }
 

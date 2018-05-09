@@ -17,15 +17,11 @@ public class GameWeekServiceImpl implements GameWeekService {
     private GameWeekRepository gameWeekRepository;
 
     @Override
-    public GameWeek findByLeagueType_LeagueTypeNameAndGameWeekNumber(String leagueTypeName, Integer gameWeekNumber) {
-        GameWeek gameWeek = gameWeekRepository.findByLeagueType_LeagueTypeNameAndGameWeekNumber(leagueTypeName, gameWeekNumber);
+    public GameWeek findByGameWeekNumber( Integer gameWeekNumber) {
+        GameWeek gameWeek = gameWeekRepository.findByGameWeekNumber( gameWeekNumber);
         return gameWeek;
     }
 
-    @Override
-    public List<GameWeek> findGameWeekByLeagueType_LeagueTypeName(String leagueTypeName) {
-        return gameWeekRepository.findGameWeekByLeagueType_LeagueTypeName(leagueTypeName);
-    }
 
     @Override
     public List<GameWeek> findAll() {
