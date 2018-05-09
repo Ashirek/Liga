@@ -5,11 +5,9 @@ import com.sieczka.repository.adminRepository.FootballerStatsRepository;
 import com.sieczka.repository.adminRepository.FootballersRepository;
 import com.sieczka.repository.teamRepository.TeamRepository;
 import com.sieczka.repository.UserRepository;
-import com.sieczka.repository.adminRepository.LeagueTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -20,8 +18,6 @@ public class CustomTeamsDetalisService {
     @Autowired
     private TeamRepository teamRepository;
 
-    @Autowired
-    private LeagueTypeRepository leagueTypeRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -32,11 +28,11 @@ public class CustomTeamsDetalisService {
     @Autowired
     private FootballerStatsRepository footballerStatsRepository;
 
-    public void createTeam(String userName, String teamName, String leagueTypeName) {
+    public void createTeam(String userName, String teamName) {
 
         User user = userRepository.findByUsername(userName);
         Teams teams = teamRepository.findByTeamName(teamName);
-        LeagueType leagueType = leagueTypeRepository.findByLeagueTypeName(leagueTypeName);
+
 
         if (teams != null){
 
@@ -45,7 +41,6 @@ public class CustomTeamsDetalisService {
             teams = new Teams();
             teams.setUser(user);
             teams.setTeamName(teamName);
-            teams.setTeamType(leagueType);
             teams.setTeamPoints(0);
             teams.setBank(100.0);
             teamRepository.save(teams);
@@ -53,8 +48,8 @@ public class CustomTeamsDetalisService {
 
     }
 
-    public void addPoints(String leagueTypeName,Integer gameWeekNumber){
-        List<Teams> teams = teamRepository.findByTeamType_LeagueTypeName(leagueTypeName);
+    public void addPoints(Integer gameWeekNumber){
+        List<Teams> teams = teamRepository.findAll();
        Integer points,fPoints;
         /*Iterator<String> flavoursIter = aFlavours.iterator();
         while (flavoursIter.hasNext()){

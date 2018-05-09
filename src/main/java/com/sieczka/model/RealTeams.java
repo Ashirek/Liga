@@ -22,10 +22,6 @@ public class RealTeams {
     @OneToMany(mappedBy = "realTeams")
     private List<Footballers> footballers;
 
-    @JsonManagedReference(value = "leaguetypetorealteams")
-    @ManyToOne
-    @JoinColumn(name = "real_league_id")
-    private LeagueType realTeamLeague;
 
     @Column(name = "real_team_name")
     private String realTeamName;
@@ -48,14 +44,6 @@ public class RealTeams {
 
     public void setFootballers(List<Footballers> footballers) {
         this.footballers = footballers;
-    }
-
-    public LeagueType getRealTeamLeague() {
-        return realTeamLeague;
-    }
-
-    public void setRealTeamLeague(LeagueType realTeamLeague) {
-        this.realTeamLeague = realTeamLeague;
     }
 
     public String getRealTeamName() {

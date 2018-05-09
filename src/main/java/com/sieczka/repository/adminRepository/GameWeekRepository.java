@@ -10,7 +10,6 @@ import java.util.List;
  */
 public interface GameWeekRepository extends JpaRepository<GameWeek,Long> {
 
-    GameWeek findByLeagueType_LeagueTypeNameAndGameWeekNumber(String leagueTypeName, Integer gameWeekNumber);
+    GameWeek findByGameWeekNumber(Integer gameWeekNumber);
 
-    List<GameWeek> findGameWeekByLeagueType_LeagueTypeName(String leagueTypeName);
 }

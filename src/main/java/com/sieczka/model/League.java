@@ -21,10 +21,6 @@ public class League {
     @Column(name = "league_name")
     private String leagueName;
 
-    @JsonManagedReference(value = "leaguetypetoleague")
-    @ManyToOne
-    @JoinColumn(name = "league_type_id")
-    private LeagueType leagueType2;
 
     @JsonBackReference(value = "leaguetoteams")
     @OneToMany(mappedBy = "league")
@@ -58,11 +54,5 @@ public class League {
         this.teams = teams;
     }
 
-    public LeagueType getLeagueType2() {
-        return leagueType2;
-    }
 
-    public void setLeagueType2(LeagueType leagueType2) {
-        this.leagueType2 = leagueType2;
-    }
 }

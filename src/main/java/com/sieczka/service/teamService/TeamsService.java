@@ -1,6 +1,5 @@
 package com.sieczka.service.teamService;
 
-import com.sieczka.model.LeagueType;
 import com.sieczka.model.Teams;
 
 import java.util.List;

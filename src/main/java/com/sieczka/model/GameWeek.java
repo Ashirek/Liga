@@ -37,20 +37,15 @@ public class GameWeek {
     @OneToMany(mappedBy = "gameWeek")
     private List<Fixtures> fixtures;
 
-    @JsonManagedReference(value = "leaguetypetogameweek")
-    @ManyToOne
-    @JoinColumn(name = "league_type_id")
-    private LeagueType leagueType;
 
     public GameWeek() {
     }
 
 
-    public GameWeek(Integer gameWeekNumber, java.sql.Date gameWeekStart, java.sql.Date gameWeekEnd, LeagueType leagueType) {
+    public GameWeek(Integer gameWeekNumber, java.sql.Date gameWeekStart, java.sql.Date gameWeekEnd) {
         this.gameWeekNumber = gameWeekNumber;
         this.gameWeekStart = gameWeekStart;
         this.gameWeekEnd = gameWeekEnd;
-        this.leagueType = leagueType;
     }
 
     public Long getGameWeekId() {
@@ -102,11 +97,4 @@ public class GameWeek {
         this.fixtures = fixtures;
     }
 
-    public LeagueType getLeagueType() {
-        return leagueType;
-    }
-
-    public void setLeagueType(LeagueType leagueType) {
-        this.leagueType = leagueType;
-    }
 }

@@ -32,11 +32,6 @@ public class Teams {
     @Column(name="team_name")
     private String teamName;
 
-    @JsonManagedReference(value = "leaguetypetoteams")
-    @ManyToOne
-    @JoinColumn(name = "team_type")
-    private LeagueType teamType;
-
     @JsonBackReference(value = "temastorosters")
     @OneToOne(mappedBy = "teams")
     private Rosters rosters;
@@ -82,14 +77,6 @@ public class Teams {
 
     public void setTeamName(String teamName) {
         this.teamName = teamName;
-    }
-
-    public LeagueType getTeamType() {
-        return teamType;
-    }
-
-    public void setTeamType(LeagueType teamType) {
-        this.teamType = teamType;
     }
 
     public Rosters getRosters() {
